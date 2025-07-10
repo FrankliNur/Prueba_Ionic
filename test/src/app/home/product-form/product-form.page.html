@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{ isEditMode ? 'Editar Producto' : 'Nuevo Producto' }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form (ngSubmit)="saveProduct()" #productForm="ngForm">
+    <ion-item>
+      <ion-input
+        [(ngModel)]="product.name"
+        name="name"
+        placeholder="Nombre del producto"
+        required
+      ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-textarea
+        [(ngModel)]="product.description"
+        name="description"
+        placeholder="Descripción"
+        rows="4"
+        required
+      ></ion-textarea>
+    </ion-item>
+
+    <ion-item>
+      <ion-input
+        [(ngModel)]="product.category"
+        name="category"
+        placeholder="Categoría"
+        required
+      ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input
+        [(ngModel)]="product.image"
+        name="image"
+        placeholder="URL de la imagen"
+        type="url"
+      ></ion-input>
+    </ion-item>
+
+    <!-- Vista previa de imagen -->
+    <div class="ion-text-center ion-margin-vertical" *ngIf="product.image">
+      <img [src]="product.image" alt="Vista previa" style="max-width: 200px; border-radius: 8px;">
+    </div>
+
+    <!-- Botón de Guardar -->
+    <ion-button
+      type="submit"
+      expand="block"
+      class="ion-margin-top"
+      [disabled]="productForm.invalid">
+      {{ isEditMode ? 'ACTUALIZAR PRODUCTO' : 'CREAR PRODUCTO' }}
+    </ion-button>
+  </form>
+</ion-content>

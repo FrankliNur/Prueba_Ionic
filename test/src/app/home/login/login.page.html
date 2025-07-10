@@ -1,0 +1,33 @@
+<ion-content>
+  <div class="login-box">
+    <h1 class="login-title">Iniciar Sesión</h1>
+
+    <ion-item class="input-field">
+      <ion-input
+        [(ngModel)]="username"
+        name="username"
+        placeholder="Ingrese usuario"
+        clearInput
+        required
+      ></ion-input>
+    </ion-item>
+
+    <ion-item class="input-field">
+      <ion-input
+        [(ngModel)]="password"
+        name="password"
+        type="password"
+        placeholder="Ingrese contraseña"
+        clearInput
+        required
+      ></ion-input>
+    </ion-item>
+
+    <ion-button
+      expand="block"
+      (click)="login()"
+      class="login-btn">
+      Ingresar
+    </ion-button>
+  </div>
+</ion-content>
